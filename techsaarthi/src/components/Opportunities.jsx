@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import {
   Briefcase,
   BookOpen,
@@ -13,7 +15,7 @@ const categories = [
     title: "Internships",
     slug: "internships",
     description: "Gain real-world experience at top tech companies",
-    count: "124 opportunities",
+    count: "15+ opportunities",
     icon: Briefcase,
     color: "from-blue-500 to-cyan-500",
   },
@@ -21,7 +23,7 @@ const categories = [
     title: "Research Programs",
     slug: "research",
     description: "Contribute to cutting-edge research projects",
-    count: "47 opportunities",
+    count: "10+ opportunities",
     icon: BookOpen,
     color: "from-pink-500 to-purple-500",
   },
@@ -29,7 +31,7 @@ const categories = [
     title: "Scholarships",
     slug: "scholarships",
     description: "Funding opportunities for tech education",
-    count: "89 opportunities",
+    count: "20+ opportunities",
     icon: Award,
     color: "from-orange-500 to-yellow-500",
   },
@@ -37,7 +39,7 @@ const categories = [
     title: "Career Programs",
     slug: "career",
     description: "Structured paths to launch your tech career",
-    count: "63 opportunities",
+    count: "10+ opportunities",
     icon: Rocket,
     color: "from-green-500 to-emerald-500",
   },
@@ -45,7 +47,7 @@ const categories = [
     title: "Hackathons",
     slug: "hackathons",
     description: "Build amazing projects and compete",
-    count: "156 opportunities",
+    count: "15+ opportunities",
     icon: Zap,
     color: "from-rose-500 to-pink-500",
   },
@@ -53,7 +55,7 @@ const categories = [
     title: "Coding Challenges",
     slug: "coding",
     description: "Level up your skills with competitions",
-    count: "203 opportunities",
+    count: "10+ opportunities",
     icon: Code2,
     color: "from-indigo-500 to-blue-500",
   },
@@ -61,7 +63,7 @@ const categories = [
     title: "Community Programs",
     slug: "community",
     description: "Connect with mentors and peers",
-    count: "76 opportunities",
+    count: "10+ opportunities",
     icon: Users,
     color: "from-teal-500 to-cyan-500",
   },
@@ -79,23 +81,45 @@ export default function Opportunities() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((item, index) => (
-          <div
-            key={index}
-            className="group bg-black/60 border border-white/10 rounded-2xl p-6 hover:border-blue-500 transition duration-300 hover:scale-95"
-          >
+        <div
+          key={index}
+          className="group bg-black/60 border border-white/10 rounded-2xl p-6 hover:border-blue-500 hover:scale-95 transition duration-200"
+        >
+          {/* Top Row: Icon + View */}
+          <div className="flex items-start justify-between">
             <div
               className={`w-14 h-14 rounded-xl flex items-center justify-center bg-gradient-to-br ${item.color}`}
             >
               <item.icon className="w-7 h-7 text-white" />
             </div>
 
-            <h3 className="text-xl font-semibold text-white mt-6">
-              {item.title}
-            </h3>
-            <p className="text-gray-400 mt-2">{item.description}</p>
-            <p className="text-blue-400 mt-4">{item.count}</p>
+            {/* VIEW LINK */}
+            <Link
+              to={`/opportunities/${item.slug}`}
+              className="text-sm text-blue-400 flex items-center gap-1 hover:gap-2 transition-all"
+            >
+              View
+              <span>→</span>
+            </Link>
           </div>
-        ))}
+
+          {/* Title */}
+          <h3 className="text-xl font-semibold text-white mt-6">
+            {item.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-gray-400 text-sm mt-2">
+            {item.description}
+          </p>
+
+          {/* Count */}
+          <p className="text-blue-400 text-sm mt-4">
+            {item.count}
+          </p>
+        </div>
+      ))}
+
       </div>
     </section>
   );

@@ -4,7 +4,7 @@ export const Hero = () => {
   return (
     <section id="hero" className="pt-32 pb-24 text-center px-15">
       {/* Badge */}
-      <div className="inline-block mb-6 px-4 py-2 rounded-full bg-blue-500/10 text-blue-400 text-sm">
+      <div className="inline-block mb-6 px-4 py-2 rounded-full bg-blue-500/15 text-blue-400 text-sm">
         Welcome to TechSaarthi
       </div>
 
