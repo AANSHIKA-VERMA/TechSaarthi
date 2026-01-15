@@ -81,7 +81,7 @@ export default function Opportunities() {
         {categories.map((item, index) => (
           <div
             key={index}
-            className="group bg-black/60 border border-white/10 rounded-2xl p-6 hover:border-blue-500 transition"
+            className="group bg-black/60 border border-white/10 rounded-2xl p-6 hover:border-blue-500 transition duration-300 hover:scale-95"
           >
             <div
               className={`w-14 h-14 rounded-xl flex items-center justify-center bg-gradient-to-br ${item.color}`}

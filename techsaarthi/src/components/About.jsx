@@ -9,12 +9,8 @@ import {
 
 export default function About() {
   return (
-    <section
-      id="about"
-      className="py-24 px-6 relative"
-    >
+    <section id="about" className="py-24 px-6 relative">
       <div className="max-w-7xl mx-auto">
-
         {/* Heading */}
         <div className="mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">
@@ -29,10 +25,11 @@ export default function About() {
 
         {/* Main Grid */}
         <div className="grid md:grid-cols-2 gap-12 mb-20">
-
           {/* What TechSaarthi Offers */}
-          <div className="group bg-white/5 border border-white/10 rounded-2xl p-8
-                          hover:border-blue-500 transition duration-300">
+          <div
+            className="group bg-white/5 border border-white/10 rounded-2xl p-8
+                          hover:border-blue-500 transition duration-300"
+          >
             <h3 className="text-xl font-semibold text-white mb-6">
               What This Platform Does
             </h3>
@@ -59,8 +56,10 @@ export default function About() {
           </div>
 
           {/* About You */}
-          <div className="group bg-white/5 border border-white/10 rounded-2xl p-8
-                          hover:border-purple-500 transition duration-300">
+          <div
+            className="group bg-white/5 border border-white/10 rounded-2xl p-8
+                          hover:border-purple-500 transition duration-300"
+          >
             <h3 className="text-xl font-semibold text-white mb-6">
               About the Creator
             </h3>
@@ -69,12 +68,12 @@ export default function About() {
               I’m <span className="text-white font-medium">Aanshika</span>, a
               technology enthusiast passionate about building practical,
               student-centric solutions.
-              <br /><br />
-              I created TechSaarthi after noticing how many students miss
-              high-impact opportunities due to scattered information,
-              limited guidance, or lack of awareness — especially women in tech.
-              My goal is to bridge this gap through a transparent and
-              community-driven platform.
+              <br />
+              <br />I created TechSaarthi after noticing how many students miss
+              high-impact opportunities due to scattered information, limited
+              guidance, or lack of awareness — especially women in tech. My goal
+              is to bridge this gap through a transparent and community-driven
+              platform.
             </p>
 
             {/* Social Links */}
@@ -84,23 +83,22 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-2.5 rounded-lg
-                           bg-pink-600 text-white hover:bg-pink-700 transition"
+                           bg-pink-600 text-white hover:bg-pink-700 transition active:scale-95"
               >
                 Instagram <ArrowUpRight size={16} />
               </a>
 
               <a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/aanshika-verma-a89301282/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-2.5 rounded-lg
-                           bg-blue-600 text-white hover:bg-blue-700 transition"
+                           bg-blue-600 text-white hover:bg-blue-700 transition active:scale-95"
               >
                 LinkedIn <ArrowUpRight size={16} />
               </a>
             </div>
           </div>
-
         </div>
 
         {/* Stats Section */}
@@ -116,16 +114,11 @@ export default function About() {
               className="bg-white/5 border border-white/10 rounded-xl p-6
                          text-center hover:border-blue-500 transition"
             >
-              <p className="text-3xl font-bold text-white mb-2">
-                {stat.value}
-              </p>
-              <p className="text-gray-400 text-sm">
-                {stat.label}
-              </p>
+              <p className="text-3xl font-bold text-white mb-2">{stat.value}</p>
+              <p className="text-gray-400 text-sm">{stat.label}</p>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

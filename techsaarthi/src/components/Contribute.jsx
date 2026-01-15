@@ -29,7 +29,7 @@ export default function Contribute() {
 
           {/* What to Share */}
           <div className="bg-white/5 border border-white/10 rounded-2xl p-6
-                          hover:border-blue-500 transition">
+                          hover:border-blue-500 transition duration-300 hover:scale-105">
             <Star className="text-blue-500 mb-4" size={28} />
             <h3 className="text-xl font-semibold text-white mb-3">
               What You Can Share
@@ -45,7 +45,7 @@ export default function Contribute() {
 
           {/* How to Share */}
           <div className="bg-white/5 border border-white/10 rounded-2xl p-6
-                          hover:border-purple-500 transition">
+                          hover:border-purple-500 transition duration-300 hover:scale-105">
             <FileText className="text-purple-500 mb-4" size={28} />
             <h3 className="text-xl font-semibold text-white mb-3">
               How You Can Contribute
@@ -65,7 +65,7 @@ export default function Contribute() {
 
           {/* What You Get */}
           <div className="bg-white/5 border border-white/10 rounded-2xl p-6
-                          hover:border-green-500 transition">
+                          hover:border-green-500 transition duration-300 hover:scale-105">
             <Award className="text-green-500 mb-4" size={28} />
             <h3 className="text-xl font-semibold text-white mb-3">
               What You Get
@@ -95,7 +95,7 @@ export default function Contribute() {
             href="https://www.instagram.com/techwithaanshika"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition">
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition active:scale-95">
             Start Contributing <ArrowRight size={18} />
           </a>
         </div>
