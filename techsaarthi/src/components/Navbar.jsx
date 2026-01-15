@@ -12,7 +12,7 @@ export const Navbar = () => {
             {"</>"}
           </div>
           <span className="text-white text-lg font-semibold">
-            TechSaarthi
+           <a href="#hero">TechSaarthi</a>
           </span>
         </div>
 
@@ -35,7 +35,7 @@ export const Navbar = () => {
             Bookmarks
           </button>
         </div>
-
+      
       </div>
     </nav>
   )
