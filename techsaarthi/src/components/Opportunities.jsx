@@ -98,7 +98,7 @@ export default function Opportunities() {
               to={`/opportunities/${item.slug}`}
               className="text-sm text-blue-400 flex items-center gap-1 hover:gap-2 transition-all"
             >
-              View
+              Explore
               <span>→</span>
             </Link>
           </div>

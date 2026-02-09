@@ -1,50 +1,63 @@
 import { useState } from "react";
 import  OpportunityCard  from "../../components/OpportunityCard";
 import  OpportunityFilters  from "../../components/OpportunityFilters";
-import { scholarships } from "../../data/scholarships";
+import {scholarships} from "../../data/scholarships";
 
-export default function Scholarships() {
-  const [selectedGender, setSelectedGender] = useState("All");
-  const [selectedYear, setSelectedYear] = useState("All");
+export default function Scholarship() {
 
-  const filteredScholarships = scholarships.filter((item) => {
+  const [filters, setFilters] = useState({
+    gender: "all",
+    year: "all",
+  });
+
+  const [search, setSearch] = useState("");
+
+  const filteredData = scholarships.filter((item) => {
     const genderMatch =
-      selectedGender === "All" ||
-      item.gender.includes(selectedGender) ||
-      item.gender.includes("Both");
+      filters.gender === "all" ||
+      item.gender.includes(filters.gender);
 
     const yearMatch =
-      selectedYear === "All" || item.years.includes(selectedYear);
+      filters.year === "all" ||
+      item.year.includes(filters.year);
 
-    return genderMatch && yearMatch;
+    const searchMatch =
+      item.name.toLowerCase().includes(search.toLowerCase());
+
+    return genderMatch && yearMatch && searchMatch;
   });
 
   return (
-    <section className="min-h-screen px-6 py-20 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold text-white mb-2">
-        Scholarships
-      </h1>
+    <section className="py-24 px-6 max-w-7xl mx-auto text-white">
+      
+      <h1 className="text-4xl font-bold mb-4">Scholarships</h1>
       <p className="text-gray-400 mb-8">
-        Explore scholarships tailored for your academic journey.
+        Filter opportunities based on eligibility
       </p>
 
-      <OpportunityFilters
-        selectedGender={selectedGender}
-        setSelectedGender={setSelectedGender}
-        selectedYear={selectedYear}
-        setSelectedYear={setSelectedYear}
+      {/* Search */}
+      <input
+        type="text"
+        placeholder="Search scholarships..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="w-full mb-6 px-4 py-3 rounded-xl bg-black/60 
+                   border border-white/20 text-white 
+                   focus:outline-none focus:border-blue-500"
       />
 
-      <div className="space-y-4">
-        {filteredScholarships.length > 0 ? (
-          filteredScholarships.map((item) => (
-            <OpportunityCard key={item.id} item={item} />
-          ))
-        ) : (
-          <p className="text-gray-400">No scholarships found.</p>
-        )}
+      {/* Filters */}
+      <OpportunityFilters
+        filters={filters}
+        setFilters={setFilters}
+      />
+
+      {/* Grid */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        {filteredData.map((item, index) => (
+          <OpportunityCard key={index} item={item} />
+        ))}
       </div>
     </section>
   );
 }
-

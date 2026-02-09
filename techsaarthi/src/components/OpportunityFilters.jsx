@@ -17,7 +17,6 @@ export default function OpportunityFilters({
         <option value="All">All Genders</option>
         <option value="Female">Female</option>
         <option value="Male">Male</option>
-        <option value="Both">Both</option>
       </select>
 
       {/* Academic Year Filter */}
