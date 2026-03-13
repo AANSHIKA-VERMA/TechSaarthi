@@ -5,8 +5,8 @@ import Research from "./pages/opportunities/Research";
 import Internship from "./pages/opportunities/Internship";
 import Hackathon from "./pages/opportunities/Hackathon";
 import Scholarship from "./pages/opportunities/Scholarship";
-import CommunityProgram from "./pages/opportunities/CommunityProgram";
-import CareerProgram from "./pages/opportunities/CareerProgram";
+import Community from "./pages/opportunities/Community";
+import Career from "./pages/opportunities/Career";
 import Challenge from "./pages/opportunities/Challenge";
 
 function App() {
@@ -20,9 +20,9 @@ function App() {
         <Route path="/opportunities/internships" element={<Internship />} />
         <Route path="/opportunities/hackathons" element={<Hackathon />} />
         <Route path="/opportunities/scholarships" element={<Scholarship />} />
-        <Route path="/opportunities/community" element={<CommunityProgram />} />
+  <Route path="/opportunities/community" element={<Community />} />
         <Route path="/opportunities/challenge" element={<Challenge />} />
-        <Route path="/opportunities/career" element={<CareerProgram />} />
+  <Route path="/opportunities/career" element={<Career />} />
       </Routes>
     </Background>
     </BrowserRouter>

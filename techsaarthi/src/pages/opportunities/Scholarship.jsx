@@ -1,41 +1,33 @@
 import { useState } from "react";
-import  OpportunityCard  from "../../components/OpportunityCard";
-import  OpportunityFilters  from "../../components/OpportunityFilters";
-import {scholarships} from "../../data/scholarships";
+import OpportunityCard from "../../components/OpportunityCard";
+import OpportunityFilters from "../../components/OpportunityFilters";
+import { scholarships } from "../../data/scholarships";
 
 export default function Scholarship() {
-
   const [filters, setFilters] = useState({
-    gender: "all",
     year: "all",
   });
 
   const [search, setSearch] = useState("");
 
   const filteredData = scholarships.filter((item) => {
-    const genderMatch =
-      filters.gender === "all" ||
-      item.gender.includes(filters.gender);
-
     const yearMatch =
       filters.year === "all" ||
-      item.year.includes(filters.year);
+      (item.year ?? "").includes(filters.year);
 
     const searchMatch =
-      item.name.toLowerCase().includes(search.toLowerCase());
+      (item.name ?? "").toLowerCase().includes(search.toLowerCase());
 
-    return genderMatch && yearMatch && searchMatch;
+    return yearMatch && searchMatch;
   });
 
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto text-white">
-      
-      <h1 className="text-4xl font-bold mb-4">Scholarships</h1>
+    <section className="py-24 px-6 max-w-7xl mx-auto text-white min-h-screen">
+      <h1 className="text-4xl font-bold mb-2">Scholarships</h1>
       <p className="text-gray-400 mb-8">
-        Filter opportunities based on eligibility
+        Filter opportunities based on your current year
       </p>
 
-      {/* Search */}
       <input
         type="text"
         placeholder="Search scholarships..."
@@ -46,18 +38,17 @@ export default function Scholarship() {
                    focus:outline-none focus:border-blue-500"
       />
 
-      {/* Filters */}
-      <OpportunityFilters
-        filters={filters}
-        setFilters={setFilters}
-      />
+      <OpportunityFilters filters={filters} setFilters={setFilters} />
 
-      {/* Grid */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         {filteredData.map((item, index) => (
           <OpportunityCard key={index} item={item} />
         ))}
       </div>
+
+      {filteredData.length === 0 && (
+        <p className="text-center text-gray-500 mt-10">No scholarships found.</p>
+      )}
     </section>
   );
 }

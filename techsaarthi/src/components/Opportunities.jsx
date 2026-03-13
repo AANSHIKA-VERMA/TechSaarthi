@@ -53,7 +53,7 @@ const categories = [
   },
   {
     title: "Coding Challenges",
-    slug: "coding",
+    slug: "challenge",
     description: "Level up your skills with competitions",
     count: "10+ opportunities",
     icon: Code2,
@@ -85,15 +85,14 @@ export default function Opportunities() {
           key={index}
           className="group bg-black/60 border border-white/10 rounded-2xl p-6 hover:border-blue-500 hover:scale-95 transition duration-200"
         >
-          {/* Top Row: Icon + View */}
           <div className="flex items-start justify-between">
             <div
               className={`w-14 h-14 rounded-xl flex items-center justify-center bg-gradient-to-br ${item.color}`}
             >
               <item.icon className="w-7 h-7 text-white" />
             </div>
-
-            {/* VIEW LINK */}
+            
+            {/* Explore Link */}
             <Link
               to={`/opportunities/${item.slug}`}
               className="text-sm text-blue-400 flex items-center gap-1 hover:gap-2 transition-all"
@@ -103,17 +102,14 @@ export default function Opportunities() {
             </Link>
           </div>
 
-          {/* Title */}
           <h3 className="text-xl font-semibold text-white mt-6">
             {item.title}
           </h3>
 
-          {/* Description */}
           <p className="text-gray-400 text-sm mt-2">
             {item.description}
           </p>
 
-          {/* Count */}
           <p className="text-blue-400 text-sm mt-4">
             {item.count}
           </p>
